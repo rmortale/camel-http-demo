@@ -42,14 +42,14 @@ java -jar target/quarkus-app/quarkus-run.jar
 
 ## Deploy to Github Packages
 
-* Add `distributionManagement` section to pom.xml replacing with your user name or organisation
+* Add `distributionManagement` section to pom.xml replacing with your user name or organisation and repository name
 
 ```bash
 <distributionManagement>
   <repository>
     <id>github</id>
     <name>GitHub Packages</name>
-    <url>https://maven.pkg.github.com/<github user>/http-demo</url>
+    <url>https://maven.pkg.github.com/[user or organisation]/[repo name]</url>
   </repository>
 </distributionManagement>
 ```
