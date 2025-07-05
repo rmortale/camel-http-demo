@@ -14,7 +14,10 @@ jobs:
         with:
           java-version: "17"
           distribution: "temurin"
-      - name: Publish package
-        run: mvn --batch-mode deploy
+
+      - name: Set version
+        run: |
+          mvn -B versions:set -DnewVersion=${{ github.event.release.tag_name }} -DgenerateBackupPoms=false
+          mvn -q deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
