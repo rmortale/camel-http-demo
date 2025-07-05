@@ -15,9 +15,9 @@ jobs:
           java-version: "17"
           distribution: "temurin"
 
-      - name: Set version
+      - name: Set version and deploy
         run: |
           mvn -B versions:set -DnewVersion=${{ github.event.release.tag_name }} -DgenerateBackupPoms=false
-          mvn -q deploy
+          mvn -B deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

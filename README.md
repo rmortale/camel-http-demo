@@ -1,5 +1,6 @@
 # Run camel route on linux
 
+
 ## Prerequisites
 
 * Java JDK
@@ -42,7 +43,7 @@ java -jar target/quarkus-app/quarkus-run.jar
 
 ## Deploy to Github Packages
 
-* Add `distributionManagement` section to pom.xml replacing with your user name or organisation and repository name
+* Add `distributionManagement` section to pom.xml replacing the placeholders with your user name or organisation and repository name
 
 ```bash
 <distributionManagement>
@@ -52,6 +53,11 @@ java -jar target/quarkus-app/quarkus-run.jar
     <url>https://maven.pkg.github.com/[user or organisation]/[repo name]</url>
   </repository>
 </distributionManagement>
+```
+* Add this line to the `properties` section in pom.xml. 
+
+```bash
+<quarkus.package.jar.type>uber-jar</quarkus.package.jar.type>
 ```
 
 * create workflow file `.github/workflows/release.yaml`
@@ -73,8 +79,12 @@ jobs:
         with:
           java-version: "17"
           distribution: "temurin"
-      - name: Publish package
-        run: mvn --batch-mode deploy
+
+      - name: Set version and deploy
+        run: |
+          mvn -B versions:set -DnewVersion=${{ github.event.release.tag_name }} -DgenerateBackupPoms=false
+          mvn -B deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
