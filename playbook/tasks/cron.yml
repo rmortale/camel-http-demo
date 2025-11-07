@@ -1,0 +1,6 @@
+- name: install cron job
+  cron:
+    user: ubuntu
+    name: "microservice Cron Job"
+    minute: "*/15"
+    job: "/usr/bin/ansible-pull -o -U https://github.com/rmortale/camel-http-demo.git playbook/playbook.yml"

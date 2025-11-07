@@ -92,7 +92,8 @@ jobs:
 
 # Installation with ansible
 
-* login to target server and create a ssh key pair with `ssh-keygen`
-* add public key to github account
-* clone repo using ssh url on target server
 * install ansible with `sudo apt install ansible`
+* execute playbook once with `sudo ansible-pull -U https://github.com/rmortale/camel-http-demo.git playbook/playbook.yml`
+
+
+
