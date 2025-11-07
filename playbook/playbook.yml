@@ -2,9 +2,12 @@
   connection: local
   become: true
 
+  pre_tasks:
+    - name: ensure apt cache is up to date
+      apt:
+        update_cache: true
+      changed_when: false
+
   tasks:
-  - name: install packages
-    apt:
-      name:
-        - htop
-        - openjdk-21-jdk-headless
+    - include_tasks: tasks/packages.yml
+  
