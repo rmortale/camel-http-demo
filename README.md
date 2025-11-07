@@ -6,6 +6,8 @@
 * Java JDK
 * Apache maven
 * jbang with camel app
+* git client
+* Ansible
 
 ## Create route
 
@@ -86,5 +88,11 @@ jobs:
           mvn -B deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
 
+# Installation with ansible
 
+* login to target server and create a ssh key pair with `ssh-keygen`
+* add public key to github account
+* clone repo using ssh url on target server
+* install ansible with `sudo apt install ansible`

@@ -4,3 +4,4 @@
 /mvnw
 /mvnw.cmd
 /target
+src/main/resources/camel/.camel-jbang/camel-jbang-run.properties
