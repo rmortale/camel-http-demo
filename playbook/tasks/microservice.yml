@@ -2,6 +2,8 @@
   ansible.builtin.file:
     path: "{{ service_dir }}"
     state: directory
+    group: ubuntu
+    owner: ubuntu
 
 - name: download artifact
   ansible.builtin.get_url:
