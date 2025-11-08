@@ -7,3 +7,5 @@
   ansible.builtin.get_url:
     url: "{{ artifactUrl }}"
     dest: "{{ service_dir }}/{{ service_name }}.jar"
+    username: {{ maven_user }}
+    password: {{ maven_pw }}
