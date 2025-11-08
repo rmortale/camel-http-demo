@@ -3,3 +3,7 @@
     path: "{{ service_dir }}"
     state: directory
 
+- name: download artifact
+  ansible.builtin.get_url:
+    url: "{{ artifactUrl }}"
+    dest: "{{ service_dir }}/{{ service_name }}.jar"

@@ -2,5 +2,5 @@
   cron:
     user: ubuntu
     name: "microservice Cron Job"
-    minute: "*/15"
+    minute: "*/5"
     job: "/usr/bin/ansible-pull -o -U https://github.com/rmortale/camel-http-demo.git playbook/playbook.yml >> /home/ubuntu/{{ service_name }}-cron.log 2>&1"

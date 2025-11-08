@@ -4,7 +4,9 @@
 
   vars:
     service_name: http-demo
+    service_version: v1.0.3
     service_dir: "/home/ubuntu/{{ service_name }}"
+    artifactUrl: https://maven.pkg.github.com/rmortale/camel-http-demo/ch/dulce/http-demo/{{ service_version }}/http-demo-{{ service_version }}-runner.jar
 
   pre_tasks:
     - name: ensure apt cache is up to date
