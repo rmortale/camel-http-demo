@@ -1,4 +1,5 @@
 - name: Create microservices directory
   ansible.builtin.file:
     path: "{{ service_dir }}"
+    state: directory
 
