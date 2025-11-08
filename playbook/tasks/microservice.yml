@@ -10,5 +10,5 @@
     username: "{{ maven_user }}"
     password: "{{ maven_pw }}"
     group: ubuntu
-    user: ubuntu
+    owner: ubuntu
 
