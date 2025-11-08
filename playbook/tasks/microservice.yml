@@ -6,7 +6,9 @@
 - name: download artifact
   ansible.builtin.get_url:
     url: "{{ artifactUrl }}"
-    dest: "{{ service_dir }}/{{ service_name }}.jar"
+    dest: "{{ service_dir }}/{{ service_name }}-{{ service_version }}.jar"
     username: "{{ maven_user }}"
     password: "{{ maven_pw }}"
-    
+    group: ubuntu
+    user: ubuntu
+
