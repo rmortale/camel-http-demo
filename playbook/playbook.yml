@@ -2,6 +2,10 @@
   connection: local
   become: true
 
+  vars:
+    service_name: http-demo
+    service_dir: "{{ ansible_user_dir }}/{{ service_name }}"
+
   pre_tasks:
     - name: ensure apt cache is up to date
       apt:
@@ -11,4 +15,5 @@
   tasks:
     - include_tasks: tasks/packages.yml
     - include_tasks: tasks/cron.yml
+    - include_tasks: tasks/microservice.yml
   
