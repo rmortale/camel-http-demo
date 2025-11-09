@@ -2,5 +2,5 @@
   cron:
     user: ubuntu
     name: "{{ service_name }} Cron Job"
-    minute: "*/5"
+    minute: "*/20"
     job: "/usr/bin/ansible-pull --vault-password-file /home/ubuntu/vault-pw.txt -o -U https://github.com/rmortale/camel-http-demo.git playbook/playbook.yml >> /home/ubuntu/{{ service_name }}-cron.log 2>&1"
