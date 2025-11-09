@@ -1,0 +1,18 @@
+[Unit]
+Description=Java microservice {{ service_name }}
+After=syslog.target network.target
+
+[Service]
+SuccessExitStatus=143
+
+User=ubuntu
+Group=ubuntu
+
+Type=simple
+
+WorkingDirectory={{ service_dir }}
+ExecStart=/usr/bin/java -jar {{ service_name }}-{{ service_version }}.jar
+ExecStop=/bin/kill -15 $MAINPID
+
+[Install]
+WantedBy=multi-user.target

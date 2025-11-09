@@ -14,3 +14,10 @@
     group: ubuntu
     owner: ubuntu
 
+- name: create environment file
+  ansible.builtin.template:
+    src: env.template
+    dest: "{{ service_dir }}/.env"
+    group: ubuntu
+    owner: ubuntu
+    
