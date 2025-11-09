@@ -20,4 +20,8 @@
     dest: "{{ service_dir }}/.env"
     group: ubuntu
     owner: ubuntu
-    
+
+- name: create systemd file
+  ansible.builtin.template:
+    src: quarkus.service
+    dest: /etc/systemd/system/{{ service_name }}.service

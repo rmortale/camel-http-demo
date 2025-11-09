@@ -92,7 +92,8 @@ jobs:
 # Installation on client
 
 * install ansible with `sudo apt install ansible`
-* execute playbook once with `sudo ansible-pull -U https://github.com/rmortale/camel-http-demo.git playbook/playbook.yml`. This will create a cron job to run the playbook periodicaly.
+* create local password file
+* execute playbook once with `ansible-pull --vault-password-file /home/ubuntu/vault-pw.txt -U https://github.com/rmortale/camel-http-demo.git playbook/playbook.yml`. This will create a cron job to run the playbook periodicaly.
 
 
 
