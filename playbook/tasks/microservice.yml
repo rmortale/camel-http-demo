@@ -20,12 +20,12 @@
     dest: "{{ service_dir }}/.env"
     group: ubuntu
     owner: ubuntu
-  notify: Restart service
 
 - name: create systemd file
   ansible.builtin.template:
     src: quarkus.service
     dest: /etc/systemd/system/{{ service_name }}.service
+  notify: Restart service
 
 - name: ensure service is running
   ansible.builtin.service:

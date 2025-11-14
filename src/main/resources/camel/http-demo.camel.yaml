@@ -3,4 +3,4 @@
       uri: "platform-http:/hello"
       steps:
         - setBody:
-            constant: "Hello from Camel JBang!"
+            constant: "Hello from Camel!"
