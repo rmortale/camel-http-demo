@@ -29,3 +29,8 @@
     - include_tasks: tasks/cron.yml
     - include_tasks: tasks/microservice.yml
   
+  handlers:
+    - name: Restart service
+      ansible.builtin.service:
+        state: restarted
+        name: "{{ service_name }}"
