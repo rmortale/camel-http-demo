@@ -7,7 +7,7 @@
 
     <groupId>ch.dulce</groupId>
     <artifactId>http-demo</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
         <project.build.outputTimestamp>2025-07-05T16:20:51Z</project.build.outputTimestamp>
