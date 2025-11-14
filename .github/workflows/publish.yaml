@@ -1,7 +1,9 @@
 name: Publish package to GitHub Packages
 on:
-  release:
-    types: [created]
+  push:
+    paths-ignore:
+      - 'playbook/**'
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -17,7 +19,9 @@ jobs:
 
       - name: Set version and deploy
         run: |
-          mvn -B versions:set -DnewVersion=${{ github.event.release.tag_name }} -DgenerateBackupPoms=false
+          if [ $GITHUB_REF_NAME == 'main' ]; then
+            mvn -B versions:set -DnewVersion=${GITHUB_SHA::7} -DgenerateBackupPoms=false
+          fi
           mvn -B deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
