@@ -1,5 +1,4 @@
-# Run camel route on linux
-
+# Run camel route on linux test
 
 ## Prerequisites
 
