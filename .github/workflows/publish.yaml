@@ -20,8 +20,8 @@ jobs:
       - name: Set version and deploy
         run: |
           if [ $GITHUB_REF_NAME == 'main' ]; then
-            mvn -B versions:set -DnewVersion=${GITHUB_SHA::7} -DgenerateBackupPoms=false
+            mvn --ntp -B versions:set -DnewVersion=${GITHUB_SHA::7} -DgenerateBackupPoms=false
           fi
-          mvn -B deploy
+          mvn --ntp -B deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
