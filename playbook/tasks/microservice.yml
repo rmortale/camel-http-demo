@@ -33,7 +33,7 @@
     enabled: true
     name: "{{ service_name }}"
 
-  handlers:
+- handlers:
     - name: Restart service
       ansible.builtin.service:
         state: restarted
