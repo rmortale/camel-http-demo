@@ -20,6 +20,7 @@
     dest: "{{ service_dir }}/.env"
     group: ubuntu
     owner: ubuntu
+  notify: Restart service
 
 - name: create systemd file
   ansible.builtin.template:
@@ -32,10 +33,8 @@
     enabled: true
     name: "{{ service_name }}"
 
-  # handlers:
-  #   - name: Restart service
-  #     ansible.builtin.service:
-  #       state: restarted
-  #       name: myservice
-  #     become: true
-  
+  handlers:
+    - name: Restart service
+      ansible.builtin.service:
+        state: restarted
+        name: "{{ service_name }}"
