@@ -34,3 +34,4 @@
       ansible.builtin.service:
         state: restarted
         name: "{{ service_name }}"
+        daemon_reload: yes
