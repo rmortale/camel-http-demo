@@ -4,7 +4,7 @@
 
   vars:
     service_name: http-demo
-    service_version: "82e8a68"
+    service_version: "983e555"
     service_dir: "/home/ubuntu/{{ service_name }}"
     artifactUrl: https://maven.pkg.github.com/rmortale/camel-http-demo/ch/dulce/http-demo/{{ service_version }}/http-demo-{{ service_version }}-runner.jar
     maven_user: rmortale

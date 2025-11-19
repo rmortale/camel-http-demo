@@ -60,7 +60,7 @@ java -jar target/quarkus-app/quarkus-run.jar
 <quarkus.package.jar.type>uber-jar</quarkus.package.jar.type>
 ```
 
-* create github workflow file under `.github/workflows`
+* create github workflow file under `.github/workflows/`
 
 ```bash
 name: Publish package to GitHub Packages
