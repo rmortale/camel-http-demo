@@ -60,13 +60,14 @@ java -jar target/quarkus-app/quarkus-run.jar
 <quarkus.package.jar.type>uber-jar</quarkus.package.jar.type>
 ```
 
-* create workflow file `.github/workflows/release.yaml`
+* create github workflow file under `.github/workflows`
 
 ```bash
 name: Publish package to GitHub Packages
 on:
-  release:
-    types: [created]
+  push:
+    paths-ignore:
+      - 'playbook/**'
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -77,13 +78,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
-          java-version: "17"
+          java-version: "21"
           distribution: "temurin"
 
       - name: Set version and deploy
         run: |
-          mvn -B versions:set -DnewVersion=${{ github.event.release.tag_name }} -DgenerateBackupPoms=false
-          mvn -B deploy
+          if [ $GITHUB_REF_NAME == 'main' ]; then
+            mvn --ntp -B versions:set -DnewVersion=${GITHUB_SHA::7} -DgenerateBackupPoms=false
+          fi
+          mvn --ntp -B deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
